@@ -10,7 +10,7 @@ Simple loan calculator app created for a job interview at Visma.
 - **Styling**
     - Material UI
 
-## How to initialize app
+## How to initialize app and run locally
 
 Requires [Node.js](https://nodejs.org/en/)
 
@@ -22,7 +22,7 @@ git clone https://github.com/munthy/simple_loan_calculator.git
 Navigate to `api` folder and run:
 ```
 npm install
-node api.js
+npm start
 ```
 
 Navigate to `client` folder and run:
