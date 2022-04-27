@@ -34,12 +34,11 @@ export default function Calculator() {
     const validateForms = () => {
         return (
           values.amount.length > 0 &&
-          values.duration.length > 0,
+          values.duration.length > 0 &&
           values.interest.length > 0 
         )}
     
     const submitData = async () => {
-        console.log(`Amount: ${values.amount} Duration: ${values.duration}`)
         setLoading(true)
         await getSeriesLoan(values).then(response => {
             setData(response)
@@ -69,7 +68,7 @@ export default function Calculator() {
                         <Grid item xs={12} sm={6}>
                             <TextField
                             id="durationInput"
-                            label="Duration in months"
+                            label="Duration in years"
                             value={values.duration}
                             onChange={handleChange('duration')}/>
                         </Grid>

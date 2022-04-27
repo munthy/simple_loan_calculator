@@ -1,9 +1,10 @@
 class LoanCalculator {
     
-    calculateSeriesLoan(amount, durationMonths, interest) {
+    calculateSeriesLoan(amount, duration, interest) {
         let loanOutputData = [];
         
-        const interestPercentage = interest/100;
+        let durationMonths = duration*12;
+        let interestPercentage = interest/100;
         let outstanding = amount;
         let deduction = Math.round(amount/durationMonths);
         let interestPerMonth = interestPercentage / durationMonths;

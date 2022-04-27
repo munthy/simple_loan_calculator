@@ -12,7 +12,7 @@ Simple loan calculator app created for a job interview at Visma.
 
 ## How to initialize app and run locally
 
-Requires [Node.js](https://nodejs.org/en/) with `npm`.
+Requires [Node.js](https://nodejs.org/en/) with `npm`
 
 Clone repository.
 ```
