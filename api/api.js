@@ -16,10 +16,9 @@ app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 
   app.post("/seriesloan/*", (req, res) => {
-    const amount = req.body.amount;
-    const durationMonths = req.body.duration;
-    let data = calc.calculateSeriesLoan(amount, durationMonths);
+    const [amount, durationMonths, interest] = [req.body.amount, req.body.duration, req.body.interest];
+    let data = calc.calculateSeriesLoan(amount, durationMonths, interest);
     res.send(data);
   })
-  
+
 });

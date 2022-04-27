@@ -14,12 +14,13 @@ export default function Calculator() {
 
     let defaultValues = {
         amount: "",
-        duration: ""
+        duration: "",
+        interest: ""
     }
 
     const [values, setValues] = useState(defaultValues);
     const [loading, setLoading] = useState(false);
-    const [data,setData] = useState([{id:0}]);
+    const [data, setData] = useState([{id:0}]);
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -27,19 +28,20 @@ export default function Calculator() {
 
     const clearForms = () => {
         setValues(defaultValues)
+        setData([{id:0}]);
     }
 
     const validateForms = () => {
         return (
           values.amount.length > 0 &&
-          values.duration.length > 0 
+          values.duration.length > 0,
+          values.interest.length > 0 
         )}
     
     const submitData = async () => {
         console.log(`Amount: ${values.amount} Duration: ${values.duration}`)
         setLoading(true)
         await getSeriesLoan(values).then(response => {
-            console.log(response)
             setData(response)
             setLoading(false)
         }).catch(error => {
@@ -48,29 +50,59 @@ export default function Calculator() {
         })
     }
     
-
     return (
         <Container component="main" maxWidth="xs">
             <Box sx={{marginTop:8, display:"flex", flexDirection:"column", alignItems:"center"}}>
                 <Typography component="h1" variant="h5">
                    Simple Series Loan Calculator
                 </Typography>
-                <Box component="form" noValidate sx={{mt:3}}>
+                <Box component="form" noValidate sx={{mt:5,mb:5}}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
-                            <TextField id="amountInput" label="Amount NOK" value={values.amount} onChange={handleChange('amount')} autoFocus/>
+                            <TextField
+                            id="amountInput"
+                            label="Amount in NOK"
+                            value={values.amount}
+                            onChange={handleChange('amount')}
+                            autoFocus/>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField id="durationInput" label="Duration Months" value={values.duration} onChange={handleChange('duration')}/>
+                            <TextField
+                            id="durationInput"
+                            label="Duration in months"
+                            value={values.duration}
+                            onChange={handleChange('duration')}/>
                         </Grid>
                         <Grid item xs={12} sm={6}>
+                            <TextField
+                            id="interestInput"
+                            label="Interest in %"
+                            value={values.interest}
+                            onChange={handleChange('interest')}/>
                         </Grid>
-                            <Grid container item xs={12} sm={6}  justifyContent="spaceBetween">
-                                <Grid item xs={6}>
-                                    <LoadingButton variant="contained" loading={loading} onClick={submitData} disabled={!validateForms()}>Submit</LoadingButton>
+                            <Grid
+                            container
+                            item
+                            xs={12}
+                            sm={6}
+                            alignItems="stretch"
+                            direction="row"
+                            justifyContent="space-between">
+                                <Grid item>
+                                    <LoadingButton
+                                    variant="contained"
+                                    loading={loading}
+                                    onClick={submitData}
+                                    disabled={!validateForms()}
+                                    sx={{height:"100%"}}
+                                    >Submit</LoadingButton>
                                 </Grid>
-                                <Grid item xs={6}>
-                                    <Button variant="outlined" onClick={clearForms}>Clear</Button>
+                                <Grid item>
+                                    <Button
+                                    variant="outlined"
+                                    onClick={clearForms}
+                                    sx={{height:"100%"}}
+                                    >Clear</Button>
                                 </Grid>
                             </Grid>
                     </Grid>

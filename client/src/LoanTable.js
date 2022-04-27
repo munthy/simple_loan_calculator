@@ -12,21 +12,21 @@ export default function LoanTable(props) {
       <Table size="large">
         <TableHead>
           <TableRow>
-            <TableCell>Term</TableCell>
-            <TableCell>Instalment</TableCell>
-            <TableCell>Interest</TableCell>
-            <TableCell>Deduction</TableCell>
-            <TableCell>Outstanding</TableCell>
+            <TableCell sx={{fontWeight:"bold"}}>Term</TableCell>
+            <TableCell sx={{fontWeight:"bold"}}>Instalment</TableCell>
+            <TableCell sx={{fontWeight:"bold"}}>Interest</TableCell>
+            <TableCell sx={{fontWeight:"bold"}}>Deduction</TableCell>
+            <TableCell sx={{fontWeight:"bold"}}>Outstanding</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.term}</TableCell>
-              <TableCell>{parseInt(row.instalment).toLocaleString()}</TableCell>
+              <TableCell>{row.instalment}</TableCell>
               <TableCell>{row.interest}</TableCell>
-              <TableCell>{parseInt(row.deduction).toLocaleString()}</TableCell>
-              <TableCell>{parseInt(row.outstanding).toLocaleString()}</TableCell>
+              <TableCell>{row.deduction}</TableCell>
+              <TableCell>{row.outstanding}</TableCell>
             </TableRow>
           ))}
         </TableBody>
