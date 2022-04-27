@@ -1,5 +1,5 @@
 # Simple Loan Calculator
-Simple loan calculator app created for a job interview at Visma.
+Simple loan calculator app created for a job interview.
 
 
 ## Tech stack
