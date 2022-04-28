@@ -32,3 +32,13 @@ npm start
 ```
 
 The app should now open in your browser.
+
+## Expansion possibilities
+The app can be expanded with more loan types by following these steps:
+
+1. Add new loan calculation method to `loanCalculator.js`
+2. Add new loan endpoint to `api.js`
+3. Add loan type selector to `Calculator` component
+4. Add `switch` statement for loan type to `submitData()` function
+
+

@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Select from '@mui/material/Select';
 import LoanTable from './LoanTable.js'
 import { getSeriesLoan } from './apiFunctions.js';
 
@@ -21,6 +22,7 @@ export default function Calculator() {
     const [values, setValues] = useState(defaultValues);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([{id:0}]);
+    const [loanType, setLoanType] = useState("series");
 
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -106,7 +108,7 @@ export default function Calculator() {
                             </Grid>
                     </Grid>
                 </Box>
-             <LoanTable props={data}/>
+                <LoanTable props={data}/>
             </Box>
        </Container>
     )
