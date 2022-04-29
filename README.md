@@ -1,7 +1,6 @@
 # Simple Loan Calculator
 Simple loan calculator app created for a job interview.
 
-
 ## Tech stack
 - **Frontend**
     - React.js
@@ -9,6 +8,10 @@ Simple loan calculator app created for a job interview.
     - Node.js with Express.js
 - **Styling**
     - Material UI
+
+## Design sketch
+
+![design_sketch](design_sketch.png)
 
 ## How to initialize app and run locally
 
